@@ -37,11 +37,20 @@ function App() {
     );
     nextId.current++;
   };
+  setTodos;
+
+  const onDelete = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  const onToggle = (id) => {
+    setTodos(todos.map((todo) => todo.id === id ? {...todo, checked : !todo.checked} :todo))
+  }
 
   return (
     <div>
       <TodoInsert onInsert={onInsert} />
-      <TodoList todos={todos} />
+      <TodoList todos={todos} onDelete={onDelete} onToggle={onToggle}/>
     </div>
   );
 }
