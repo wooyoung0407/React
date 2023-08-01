@@ -1,6 +1,6 @@
 function TodoListItem({todo}) {
   return ( 
-    <>{todo}</>
+    <div>{todo.text}</div>
    );
 }
 
